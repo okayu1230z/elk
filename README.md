@@ -2,9 +2,9 @@
 
 dockerベースで動作するELK Stackのサンプル
 
-E(Elasticsearch): 検索・分析エンジン
-L(Logstash): サーバサイドのデータ処理パイプライン
-K(Kibana): Elasticsearchのデータをチャートやグラフで可視化
+- E(Elasticsearch): 検索・分析エンジン
+- L(Logstash): サーバサイドのデータ処理パイプライン
+- K(Kibana): Elasticsearchのデータをチャートやグラフで可視化
 
 以上で完成されるログ収集&見える化システムのこと
 
