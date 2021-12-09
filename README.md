@@ -1,4 +1,4 @@
-# docker base ELK stach
+# docker base ELK stack
 
 dockerベースで動作するELK Stackのサンプル
 
