@@ -36,22 +36,20 @@ FluendもLogstashと同じくLog Collectorで、各サーバにインストー�
 
 入力はinputとして分離され、outputもプラグインという形で分離することで、さまざまなアプリケーションのログを入力として受け取り、色々な出力先を選択できるようになっている
 
-Logstashとの違いについては、結局このスライドがよくまとまっていて神
-https://www.slideshare.net/td-nttcom/fluentd-vs-logstash-for-openstack-log-management
+Logstashとの違いについては、結局[このスライド](https://www.slideshare.net/td-nttcom/fluentd-vs-logstash-for-openstack-log-management)がよく詰まっていて神
 
-色々Fluendがイケてる部分があったりする
+まとめると色々Fluendがイケてる部分があったりする
 
-また、イベントルーティングの方法が違う
+運用上、異なる点としてはイベントルーティングの方法が違う
 
 - Fluendは「タグ」を使用してイベントをルーティングする
 - Logstashは「if-thenステートメント」の記述を通してイベントをルーティングする
 
-グローバルでは、Logstashの方がやや一般的らしい
+現状FluentdよりもLogstashの方が一般的だが、Fluentdも近年実績を増やしていて広がりを見せている
 
 ## kibana
 
 Elasticsearchデータを可視化したり、Elastick Stackを制御するオープンソースのユーザインターフェース
-
 
 kibanaは一般的に以下の順序でデータをビジュアライズする
 
@@ -88,4 +86,18 @@ Discover, Visualizeで作成したパーツを並べて表示するダッシュ�
 3. 検索窓、Filterで絞り込み条件を指定（Visualizeされたものからさらに絞り込むことができる）
 4. SaveでDashboardを名前をつけて保存する
 
+### Grafanaとの比較
 
+Grafanaはダッシュボードを作成、探索、共有するためのパワフルで機能豊富なオープンソースのデータ可視化ツールで「メトリクスの分析と可視化」が得意
+
+KibanaはElasticsearch上で動作可能なため、さまざまなデータソースからの「ログメッセージ分析」に利用することができる
+
+Kibanaはフォレンジック、セキュリティ、開発などログに依存した用途に利用するのは簡単
+
+Grafanaにもログ解析の機能はあるがKibanaほど開発されていないという現状がある
+
+ただ、KibanaはElastic製品の制限の影響を受けやすいため、その辺りが採用要否の判断軸になってくることもある
+
+Grafanaはアラートエンジンを内蔵しており、ユーザがアラートコントロールをカスタマイズすることができる
+
+Kibanaはアラートシステムを内包しておらず、プラグインや外部システムとの連携しないとアラート機能を利用できない
